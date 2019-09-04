@@ -75,7 +75,7 @@ class AppointmentController {
     if (isBefore(hourStart, new Date())) {
       return res.status(400).json({ error: 'Past dates are not permitted' });
     }
-    
+
     // Check date avaliability
     const checkAvailability = await Appointment.findOne({
       where: {
@@ -114,9 +114,10 @@ class AppointmentController {
 
     return res.json(appointment);
   }
-    /**
-     * Cancelling appointment
-     */
+
+  /**
+   * Cancelling appointment
+   */
   async delete(req, res) {
     const appointment = await Appointment.findByPk(req.params.id, {
       include: [
