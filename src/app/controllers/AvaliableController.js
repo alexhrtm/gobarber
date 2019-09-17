@@ -45,6 +45,7 @@ class AvaliableController {
       '19:00',
     ];
 
+    // Formatting date => Ex: 2018-09-30 08:00:00
     const avaliable = schedule.map(time => {
       const [hour, minute] = time.split(':');
       const value = setSeconds(

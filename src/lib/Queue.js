@@ -11,6 +11,7 @@ class Queue {
     this.init();
   }
 
+  // Starting queues
   init() {
     jobs.forEach(({ key, handle }) => {
       this.queues[key] = {
@@ -22,10 +23,12 @@ class Queue {
     });
   }
 
+  // Add new jobs to queue
   add(queue, job) {
     return this.queues[queue].bee.createJob(job).save();
   }
 
+  // Processing queues
   processQueue() {
     jobs.forEach(job => {
       const { bee, handle } = this.queues[job.key];
